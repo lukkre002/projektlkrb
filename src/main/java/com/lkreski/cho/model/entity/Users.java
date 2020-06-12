@@ -22,10 +22,7 @@ public class Users {
     private String email;
     @Column
     private String password;
-//    @OneToMany(mappedBy = "user")
-//    private List<Publication> publications;
-//    @OneToMany(mappedBy = "user")
-//    private List<SystemEvents> systemEvents;
+
 
 
 }

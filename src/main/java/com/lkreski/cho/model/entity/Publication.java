@@ -26,7 +26,5 @@ public class Publication {
     @Column
     private String category;
 
-//    @ManyToOne
-//    @JoinColumn(name = "userID", nullable = true)
-//    private User user;
+
 }
