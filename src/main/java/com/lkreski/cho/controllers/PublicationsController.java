@@ -38,7 +38,7 @@ public class PublicationsController {
     public String addNewPublicationPost(Model model, Publication publication){
         publication.setVersion(1L);
         publicationRepository.saveAndFlush(publication);
-        return "newpublication";
+        return "redirect:show";
     }
 
     @GetMapping("deletePublication")
@@ -48,10 +48,15 @@ public class PublicationsController {
     }
 
     @GetMapping("editPublication")
-    public String editPublication(@RequestParam String param, Model model){
+    public String showEditPublication(@RequestParam String param, Model model){
         Publication publication = publicationRepository.findByPublicationID(Long.parseLong(param));
         model.addAttribute("publication", publication);
         return "editpublication";
+    }
 
+    @PostMapping
+    public String editPublication(Publication publication, Model model){
+        publicationRepository.saveAndFlush(publication);
+        return "redirect:show";
     }
 }
