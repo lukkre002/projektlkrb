@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link th:href="@{/styles/carousel.css}" rel="stylesheet">
+    <title>Projekt Łukasz Kręski i Rafał Biernacki</title>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Projekt</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item ">
+                <a class="nav-link" href="#">Strona główna</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Profil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Przegląd</a>
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Publikacje
+                    <span class="sr-only">(current)</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Dodaj </a>
+                    <a class="dropdown-item" href="#">Edytuj</a>
+                    <a class="dropdown-item" href="#">Pobierz</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<body style="background-image: url('img/pobrane.png'); align: center;" >
+
+<!-- ======= Hero Section ======= -->
+<section   style="margin-top: 30px; background-image: url('img/pobrane.png'); align: center;  ">
+<form class="md-form" style="align: center; "  th:object="${publication}" method="post" th:action="@{showAddPublication}">
+    <div class="container" style="background-image: url('img/pobrane.png'); display: table; table-layout:fixed; align: center;">
+        <div class="row">
+                <div class="file-field">
+                    <div class="btn btn-primary btn-sm float-left" style=" width: 347px; text-align: left;">
+                        <span>Wybierz plik</span>
+                        <input type="file">
+                    </div>
+                </div>
+        </div>
+      
+        <div class="row" style="margin-top: 10px;">
+                <div class="file-field" style=" width: 60px;">
+                    <div class="btn btn-primary btn-sm float-left" style=" width: 347px; text-align: left;">
+                        <span>Tytuł publikacji</span>
+                        <input type="text" th:field="*{title}">
+                    </div>
+                </div>
+        </div>
+		
+		     <div class="row" style="margin-top: 10px">
+                <div class="file-field">
+                    <div class="btn btn-primary btn-sm float-left" style=" width: 347px; text-align: left;">
+                        <span>Data publikacji</span>
+                        <input type="date" th:field="*{publicationDate}">
+                    </div>
+                </div>
+			
+        </div>
+		   <div class="row" style="margin-top: 10px">
+                <div class="file-field">
+                    <div class="btn btn-primary btn-sm float-left" style=" width: 347px; text-align: left;">
+                        <span>Autorzy</span>
+                        <input type="text" th:field="*{author}">
+                    </div>
+                </div>
+        </div>
+		
+		   <div class="row" style="margin-top: 10px">
+                <div class="file-field">
+                    <div class="btn btn-primary btn-sm float-left" style=" width: 347px; text-align: left;">
+                        <span>Kategoria</span>
+                        <input type="text"th:field="*{category}">
+                    </div>
+                </div>
+        </div>
+				   <div class="row" style="margin-top: 10px">
+                <div class="file-field">
+                    <div class="btn btn-primary btn-sm float-left" style=" width: 347px; align:center">
+                        <button type="submit" class="btn btn-success">Dodaj</button>
+
+                    </div>
+                </div>
+        </div>
+<input type="hidden" th:field ="*{publicationID}">
+    </div>
+</form>
+</section><!-- End Hero -->
+</body>
+</html>
